@@ -1,13 +1,18 @@
-from package import Package
-from setuptools import find_packages, setup
+from setuptools import setup
+from setuptools import find_packages
+import os
 
+with open('..\\1.Documentation\\Requirements.txt') as f:
+    install_requires = f.read().splitlines()
 
-setup(
-    author="Petar Nikolov",
-    author_email="petar.nikolov@resolve.io",
+kw = dict(
+    name='MLRR',
+    version='1.0.0',
+    description='ML Resolution Routing',
+    author='Resolve Systems',
+	author_email='',
+    install_requires=install_requires,
     packages=find_packages(),
-    include_package_data=True,
-    cmdclass={
-        "package": Package
-    }
-)
+    url='')
+	
+setup(**kw)
